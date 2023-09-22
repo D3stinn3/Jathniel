@@ -4,3 +4,7 @@ from django.shortcuts import render
 def homePage(request):
     context = {}
     return render(request, 'temp/base.html', context)
+
+def indexPage(request):
+    context = {}
+    return render(request, 'temp/index.html', context)
