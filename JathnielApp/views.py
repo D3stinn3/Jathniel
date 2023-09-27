@@ -7,4 +7,20 @@ def homePage(request):
 
 def indexPage(request):
     context = {}
-    return render(request, 'temp/index.html', context)
+    return render(request, 'temp/base2.html', context)
+
+def aboutPage(request):
+    context = {}
+    return render(request, 'temp/base3.html', context)
+
+def contactPage(request):
+    context = {}
+    return render(request, 'temp/base4.html', context)
+
+def activitiesPage(request):
+    context = {}
+    return render(request, 'temp/base5.html', context)
+
+def subscriptionPage(request):
+    context = {}
+    return render(request, 'temp/base6.html', context)
