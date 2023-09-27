@@ -1,0 +1,1 @@
+web: gunicorn ProjectJathniel.wsgi --log-file -
