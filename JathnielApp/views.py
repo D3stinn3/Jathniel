@@ -7,4 +7,4 @@ def homePage(request):
 
 def indexPage(request):
     context = {}
-    return render(request, 'temp/index.html', context)
+    return render(request, 'temp/base2.html', context)
