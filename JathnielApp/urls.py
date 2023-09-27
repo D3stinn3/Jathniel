@@ -2,7 +2,7 @@ from django.urls import path, include
 from JathnielApp import views
 
 urlpatterns = [
-    path('home/', views.homePage, name="home"),
+    path('', views.homePage, name="home"),
     path('index/', views.indexPage, name="index"),
     path('contact/', views.contactPage, name="contact"),
     path('about/', views.aboutPage, name="about"),
