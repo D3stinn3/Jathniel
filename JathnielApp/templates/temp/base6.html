@@ -16,7 +16,8 @@
             font-family: karla;
         }
     </style>
-
+    <!--CaureselJs-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -31,6 +32,7 @@
 
                 <nav>
                     <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="{% url 'home' %}">Home</a></li>
                     </ul>
                 </nav>
 
@@ -52,6 +54,36 @@
 
         </nav>
 
+                <div class="sliderAx h-auto py-8">
+            <div id="slider-1" class="container mx-auto">
+                <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+            <div class="md:w-1/2">
+                <p class="font-bold text-sm uppercase">Jathniel Swimming Pool</p>
+                <p class="text-3xl font-bold">"Be a Pro"</p>
+                <p class="text-2xl mb-10 leading-none">Book Appointment Today</p>
+                <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Book Appointment</a>
+                </div>  
+            </div> <!-- container -->
+            <br>
+            </div>
+
+            <div id="slider-2" class="container mx-auto">
+                <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+            
+        <p class="font-bold text-sm uppercase">Jathniel Swimming Pool</p>
+                <p class="text-3xl font-bold">"Be a Pro"</p>
+                <p class="text-2xl mb-10 leading-none">Subscribe For Lessons Today</p>
+                <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                
+            </div> <!-- container -->
+            <br>
+            </div>
+            </div>
+        <div  class="flex justify-between w-12 mx-auto pb-2">
+                <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
+            <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+        </div>
+
         <!-- Text Header -->
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
@@ -59,7 +91,7 @@
                     Subscriptions
                 </a>
                 <p class="text-lg text-gray-600">
-                    "Subscribe for lessons"
+                    "Bei Zetu"
                 </p>
             </div>
         </header>
@@ -72,16 +104,15 @@
                     class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
                     @click="open = !open"
                 >
-                    Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+                    Be a Pro <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
                 </a>
             </div>
             <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Services</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
+                    <a href="{% url 'activities' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
+                    <a href="{% url 'subscription' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
+                    <a href="{% url 'about' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
+                    <a href="{% url 'contact' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
                 </div>
             </div>
         </nav>
@@ -98,17 +129,15 @@
             <div class="p-6">
             <h5
                 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                Card title
+                Ksh 200
             </h5>
             <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                Basic Fee
             </p>
             </div>
             <div
             class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
-            <small>Last updated 3 mins ago</small>
+            <small>Jathniel Swimming Pool</small>
             </div>
         </div>
         <div
@@ -122,16 +151,15 @@
             <div class="p-6">
             <h5
                 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                Card title
+                Ksh 4,200
             </h5>
             <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                This card has supporting text below as a natural lead-in to
-                additional content.
+                Six Basic Lessons
             </p>
             </div>
             <div
             class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
-            <small>Last updated 3 mins ago</small>
+            <small>Jathniel Swimming Pool</small>
             </div>
         </div>
         <div
@@ -145,20 +173,127 @@
             <div class="p-6">
             <h5
                 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                Card title
+                Ksh 50
             </h5>
             <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
+                For Schools
             </p>
             </div>
             <div
             class="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center dark:border-neutral-600 dark:text-neutral-50">
-            <small>Last updated 3 mins ago</small>
+            <small>Jathniel Swimming Pool</small>
             </div>
+            
         </div>
         </div>
+                <section id="Projects"
+            class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+
+            <!--   ✅ Product card 1 - Starts Here 👇 -->
+            <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                <a href="#">
+                    <img src="https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                    <div class="px-4 py-3 w-72">
+                        <span class="text-gray-400 mr-3 uppercase text-xs">Jathniel Swimming Pool</span>
+                        <p class="text-lg font-bold text-black truncate block capitalize">Beginner Lessons</p>
+                        <div class="flex items-center">
+                            <p class="text-lg font-semibold text-black cursor-auto my-3">Ksh 100</p>
+                            <del>
+                                <p class="text-sm text-gray-600 cursor-auto ml-2">Ksh 400</p>
+                            </del>
+                            <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!--   🛑 Product card 1 - Ends Here  -->
+
+            <!--   ✅ Product card 2 - Starts Here 👇 -->
+            <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                <a href="#">
+                    <img src="https://images.unsplash.com/photo-1651950519238-15835722f8bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                    <div class="px-4 py-3 w-72">
+                        <span class="text-gray-400 mr-3 uppercase text-xs">Jathniel Swimming Pool</span>
+                        <p class="text-lg font-bold text-black truncate block capitalize">Intermediate Lessons</p>
+                        <div class="flex items-center">
+                            <p class="text-lg font-semibold text-black cursor-auto my-3">Ksh 150</p>
+                            <del>
+                                <p class="text-sm text-gray-600 cursor-auto ml-2">Ksh 150</p>
+                            </del>
+                            <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!--   🛑 Product card 2- Ends Here  -->
+
+            <!--   ✅ Product card 3 - Starts Here 👇 -->
+            <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                <a href="#">
+                    <img src="https://images.unsplash.com/photo-1651950537598-373e4358d320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MjV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                    <div class="px-4 py-3 w-72">
+                        <span class="text-gray-400 mr-3 uppercase text-xs">Jathniel Swimming Pool</span>
+                        <p class="text-lg font-bold text-black truncate block capitalize">Advanced Lessons</p>
+                        <div class="flex items-center">
+                            <p class="text-lg font-semibold text-black cursor-auto my-3">Ksh 300</p>
+                            <del>
+                                <p class="text-sm text-gray-600 cursor-auto ml-2">Ksh 500</p>
+                            </del>
+                            <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!--   🛑 Product card 3 - Ends Here  -->
+
+            <!--   ✅ Product card 4 - Starts Here 👇 -->
+            <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                <a href="#">
+                    <img src="https://images.unsplash.com/photo-1651950540805-b7c71869e689?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Mjl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                    <div class="px-4 py-3 w-72">
+                        <span class="text-gray-400 mr-3 uppercase text-xs">Jathniel Swimming Pool</span>
+                        <p class="text-lg font-bold text-black truncate block capitalize">6 Kids Lessons</p>
+                        <div class="flex items-center">
+                            <p class="text-lg font-semibold text-black cursor-auto my-3">Ksh 3000</p>
+                            <del>
+                                <p class="text-sm text-gray-600 cursor-auto ml-2">Ksh 5000</p>
+                            </del>
+                            <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!--   🛑 Product card 4 - Ends Here  -->
+
+        </section>
 
 
         <footer class="w-full border-t bg-white pb-12">
@@ -168,6 +303,76 @@
                 <div class="lowercasecase pb-6">&copy; BuiltBySisi</div>
             </div>
         </footer>
+
+                        <script>
+            var cont=0;
+            function loopSlider(){
+            var xx= setInterval(function(){
+                switch(cont)
+                {
+                case 0:{
+                    $("#slider-1").fadeOut(400);
+                    $("#slider-2").delay(400).fadeIn(400);
+                    $("#sButton1").removeClass("bg-purple-800");
+                    $("#sButton2").addClass("bg-purple-800");
+                cont=1;
+                
+                break;
+                }
+                case 1:
+                {
+                
+                    $("#slider-2").fadeOut(400);
+                    $("#slider-1").delay(400).fadeIn(400);
+                    $("#sButton2").removeClass("bg-purple-800");
+                    $("#sButton1").addClass("bg-purple-800");
+                cont=0;
+                
+                break;
+                }
+                
+                
+                }},8000);
+
+        }
+
+        function reinitLoop(time){
+        clearInterval(xx);
+        setTimeout(loopSlider(),time);
+        }
+
+
+
+        function sliderButton1(){
+
+            $("#slider-2").fadeOut(400);
+            $("#slider-1").delay(400).fadeIn(400);
+            $("#sButton2").removeClass("bg-purple-800");
+            $("#sButton1").addClass("bg-purple-800");
+            reinitLoop(4000);
+            cont=0
+            
+            }
+            
+            function sliderButton2(){
+            $("#slider-1").fadeOut(400);
+            $("#slider-2").delay(400).fadeIn(400);
+            $("#sButton1").removeClass("bg-purple-800");
+            $("#sButton2").addClass("bg-purple-800");
+            reinitLoop(4000);
+            cont=1
+            
+            }
+
+            $(window).ready(function(){
+                $("#slider-2").hide();
+                $("#sButton1").addClass("bg-purple-800");
+                
+
+                loopSlider();
+            });
+
+        </script>
         
 
     </body>

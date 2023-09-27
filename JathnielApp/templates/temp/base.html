@@ -30,9 +30,9 @@
         <!-- Top Bar Nav -->
         <nav class="w-full py-4 bg-blue-800 shadow">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
-
                 <nav>
                     <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="{% url 'home' %}">Home</a></li>
                     </ul>
                 </nav>
 
@@ -75,16 +75,15 @@
                     class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
                     @click="open = !open"
                 >
-                    DropDown <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+                    Be a Pro <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
                 </a>
             </div>
             <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Services</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
+                    <a href="{% url 'activities' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
+                    <a href="{% url 'subscription' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
+                    <a href="{% url 'about' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
+                    <a href="{% url 'contact' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
                 </div>
             </div>
         </nav>
@@ -96,7 +95,7 @@
                 <p class="font-bold text-sm uppercase">Jathniel Swimming Pool</p>
                 <p class="text-3xl font-bold">"Be a Pro"</p>
                 <p class="text-2xl mb-10 leading-none">Book Appointment Today</p>
-                <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Book Appointment</a>
+                <a href="{% url 'contact' %}" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Book Appointment</a>
                 </div>  
             </div> <!-- container -->
             <br>
@@ -124,25 +123,48 @@
 
             <!-- Posts Section -->
             <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
-                <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Jathniel Swimming Pool</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Our Job is provision of affordable swimming services and giving chance to anyone aspiring to "Be a Pro"</a>
-                        <p href="#" class="text-sm pb-3">
-                            By <a href="#" class="font-semibold hover:text-gray-800">Felix</a>, Published on September 20th, 2023
-                        </p>
-                        <a href="#" class="pb-6">
-                            At Jathniel Swimming Pool, we are dedicated to providing an exceptional aquatic experience for all ages. Our facility offers a wide range of services and amenities that are sure to make your visit a memorable one.
-                            Dive into our crystal-clear, 3-meter deep pool for an exhilarating swimming experience. Our pool is spacious, well-maintained, and perfect for both beginners and advanced swimmers.
-                        </a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            <section class="flex items-center py-10 bg-stone-100 xl:h-screen font-poppins dark:bg-gray-800 ">
+                    <div class="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
+                        <div class="flex flex-wrap ">
+                            <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+                                <div class="relative">
+                                    <img src="https://i.postimg.cc/QtyYkbxp/pexels-andrea-piacquadio-927022.jpg" alt=""
+                                        class="relative z-40 object-cover w-full h-96 lg:rounded-tr-[80px] lg:rounded-bl-[80px] rounded">
+                                    <div
+                                        class="absolute z-10 hidden w-full h-full bg-blue-400 rounded-bl-[80px] rounded -bottom-6 right-6 lg:block">
+                                    </div>
+                                    <div
+                                        class="absolute z-50 text-blue-400 transform -translate-y-1/2 cursor-pointer top-1/2 left-[46%] hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="w-14 h-14 bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
+                                <div class="relative">
+                                    <h1
+                                        class="absolute -top-20   left-0 text-[20px] lg:text-[100px] text-gray-900 font-bold  dark:text-gray-200 opacity-5 md:block hidden">
+                                        Jathniel
+                                    </h1>
+                                    <h1 class="pl-2 text-3xl font-bold border-l-8 border-blue-400 md:text-5xl dark:text-white">
+                                        Welcome to Jathniel Swimming Pool
+                                    </h1>
+                                </div>
+                                <p class="mt-6 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                    Established in 2017, Jathniel Swimming Pool has emerged as the go-to destination for both schools and individuals seeking the perfect aquatic escape. Our commitment to excellence has set us apart, making us the preferred choice for those in search of a swimming haven.
+                                </p>
+                                <a href="#"
+                                    class="px-4 py-3 text-gray-50 transition-all transform bg-blue-400 rounded-[80px] hover:bg-blue-500 dark:hover:text-gray-100 dark:text-gray-100 ">
+                                    Learn more
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </article>
+                </section>
 
             </section>
 

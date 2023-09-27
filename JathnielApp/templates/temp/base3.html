@@ -17,6 +17,9 @@
         }
     </style>
 
+    <!--CaureselJs-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <!-- Font Awesome -->
@@ -31,6 +34,7 @@
 
                 <nav>
                     <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="{% url 'home' %}">Home</a></li>
                     </ul>
                 </nav>
 
@@ -52,6 +56,37 @@
 
         </nav>
 
+        <div class="sliderAx h-auto py-8">
+            <div id="slider-1" class="container mx-auto">
+                <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+            <div class="md:w-1/2">
+                <p class="font-bold text-sm uppercase">Jathniel Swimming Pool</p>
+                <p class="text-3xl font-bold">"Be a Pro"</p>
+                <p class="text-2xl mb-10 leading-none">Book Appointment Today</p>
+                <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Book Appointment</a>
+                </div>  
+            </div> <!-- container -->
+            <br>
+            </div>
+
+            <div id="slider-2" class="container mx-auto">
+                <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+            
+        <p class="font-bold text-sm uppercase">Jathniel Swimming Pool</p>
+                <p class="text-3xl font-bold">"Be a Pro"</p>
+                <p class="text-2xl mb-10 leading-none">Subscribe For Lessons Today</p>
+                <a href="#" class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Contact us</a>
+                
+            </div> <!-- container -->
+            <br>
+            </div>
+            </div>
+        <div  class="flex justify-between w-12 mx-auto pb-2">
+                <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
+            <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
+        </div>
+
+
         <!-- Text Header -->
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
@@ -59,7 +94,7 @@
                     About Us
                 </a>
                 <p class="text-lg text-gray-600">
-                    "Learn more about us"
+                    "Kutuhusu"
                 </p>
             </div>
         </header>
@@ -72,16 +107,15 @@
                     class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
                     @click="open = !open"
                 >
-                    Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+                    Be a Pro <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
                 </a>
             </div>
             <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Services</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
+                    <a href="{% url 'activities' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Activities</a>
+                    <a href="{% url 'subscription' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Subscription</a>
+                    <a href="{% url 'about' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">About</a>
+                    <a href="{% url 'contact' %}" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Contact</a>
                 </div>
             </div>
         </nav>
@@ -91,62 +125,95 @@
 
             <!-- Post Section -->
             <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
-                <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=3">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Why Us?</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">We are committed to making every visit a memorable one. Dive in, have fun, and create lasting memories with us. Come and experience the perfect blend of relaxation, entertainment, and aquatic adventure.</a>
-                        <p href="#" class="text-sm pb-3">
-                            By <a href="#" class="font-semibold hover:text-gray-800">Julia</a>, Published on September 20th, 2023
-                        </p>
-                        <a href="#" class="pb-6">
-                            Our pool and facilities are designed to cater to the needs of families, ensuring a safe and enjoyable environment for everyone.
-                            Planning a birthday party or special event? Jathniel Swimming Pool is the perfect venue. We offer party packages and amenities to make your celebration a hit.
-                            Our beautifully landscaped surroundings add to the charm of the place. It's not just a pool but a retreat into nature.
-                            Our trained and friendly staff members are always ready to assist you, ensuring a seamless and pleasant experience during your visit.
-                        </a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <div class="w-full flex pt-6">
-                    <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-left p-6">
-                        <p class="text-lg text-blue-800 font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Previous</p>
-                        <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>
-                    </a>
-                    <a href="#" class="w-1/2 bg-white shadow hover:shadow-md text-right p-6">
-                        <p class="text-lg text-blue-800 font-bold flex items-center justify-end">Next <i class="fas fa-arrow-right pl-1"></i></p>
-                        <p class="pt-2">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</p>
-                    </a>
-                </div>
-
-                <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
-                    <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
-                        <img src="https://source.unsplash.com/collection/1346951/150x150?sig=1" class="rounded-full shadow h-32 w-32">
-                    </div>
-                    <div class="flex-1 flex flex-col justify-center md:justify-start">
-                        <p class="font-semibold text-2xl">David</p>
-                        <p class="pt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel neque non libero suscipit suscipit eu eu urna.</p>
-                        <div class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4">
-                            <a class="" href="#">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a class="pl-4" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="pl-4" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="pl-4" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
+                <section class="py-10 lg:py-20 bg-stone-100 font-poppins dark:bg-gray-800">
+                        <div class="max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
+                            <div class="flex flex-wrap ">
+                                <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
+                                    <div class="lg:max-w-md">
+                                        <div class="px-4 pl-4 mb-6 border-l-4 border-blue-500">
+                                            <span class="text-sm text-gray-600 uppercase dark:text-gray-400">Who we are?</span>
+                                            <h1 class="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
+                                                Kutuhusu
+                                            </h1>
+                                        </div>
+                                        <p class="px-4 mb-10 text-base leading-7 text-gray-500 dark:text-gray-400">
+                                            Tuna mandhari ya kuvutia na ya kuwezesha watu wadogo kwa wazima
+                                            Kuja uweze kuogelea kwenye bwawa letu la kifahari pale Jathniel Swimming Pool
+                                        </p>
+                                        <div class="flex flex-wrap items-center">
+                                            <div class="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
+                                                <div class="p-6 bg-white dark:bg-gray-900">
+                                                    <span class="text-blue-500 dark:text-blue-400">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="w-10 h-10"
+                                                            fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                                            <path
+                                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                                        </svg>
+                                                    </span>
+                                                    <p class="mt-4 mb-2 text-3xl font-bold text-gray-700 dark:text-gray-400">20
+                                                    </p>
+                                                    <h2 class="text-sm text-gray-700 dark:text-gray-400">Projects and Plans</h2>
+                                                </div>
+                                            </div>
+                                            <div class="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
+                                                <div class="p-6 bg-white dark:bg-gray-900">
+                                                    <span class="text-blue-500 dark:text-blue-400">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="w-10 h-10"
+                                                            fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                                                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                                                        </svg>
+                                                    </span>
+                                                    <p class="mt-4 mb-2 text-3xl font-bold text-gray-700 dark:text-gray-400">200
+                                                    </p>
+                                                    <h2 class="text-sm text-gray-700 dark:text-gray-400">Over 200 schools engaged</h2>
+                                                </div>
+                                            </div>
+                                            <div class="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
+                                                <div class="p-6 bg-white dark:bg-gray-900">
+                                                    <span class="text-blue-500 dark:text-blue-400">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="w-10 h-10"
+                                                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                                        </svg>
+                                                    </span>
+                                                    <p class="mt-4 mb-2 text-3xl font-bold text-gray-700 dark:text-gray-400">20
+                                                    </p>
+                                                    <h2 class="text-sm text-gray-700 dark:text-gray-400">Clients Trained</h2>
+                                                </div>
+                                            </div>
+                                            <div class="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
+                                                <div class="p-6 bg-white dark:bg-gray-900">
+                                                    <span class="text-blue-500 dark:text-blue-400">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="w-10 h-10"
+                                                            fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z" />
+                                                        </svg>
+                                                    </span>
+                                                    <p class="mt-4 mb-2 text-3xl font-bold text-gray-700 dark:text-gray-400">Working hours
+                                                    </p>
+                                                    <h2 class="text-sm text-gray-700 dark:text-gray-400">Open from 10 am</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+                                    <img src="https://i.postimg.cc/9MW8G96J/pexels-the-coach-space-2977565.jpg" alt=""
+                                        class="relative z-40 object-cover w-full h-full rounded">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                </section>
+
+
 
             </section>
 
@@ -161,81 +228,86 @@
                     </a>
                 </div>
 
-                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">Instagram</p>
-                    <div class="grid grid-cols-3 gap-3">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=3">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=4">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=5">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=6">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=7">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
-                    </div>
-                    <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
-                        <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
-                    </a>
-                </div>
-
             </aside>
 
         </div>
 
         <footer class="w-full border-t bg-white pb-12">
-            <div
-                class="relative w-full flex items-center invisible md:visible md:pb-12"
-                x-data="getCarouselData()"
-            >
-                <button
-                    class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
-                    x-on:click="decrement()">
-                    &#8592;
-                </button>
-                <template x-for="image in images.slice(currentIndex, currentIndex + 6)" :key="images.indexOf(image)">
-                    <img class="w-1/6 hover:opacity-75" :src="image">
-                </template>
-                <button
-                    class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
-                    x-on:click="increment()">
-                    &#8594;
-                </button>
-            </div>
             <div class="w-full container mx-auto flex flex-col items-center">
                 <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                    <a href="#" class="uppercase px-3">About Us</a>
-                    <a href="#" class="uppercase px-3">Privacy Policy</a>
-                    <a href="#" class="uppercase px-3">Terms & Conditions</a>
-                    <a href="#" class="uppercase px-3">Contact Us</a>
                 </div>
-                <div class="uppercase pb-6">&copy; myblog.com</div>
+                <div class="lowercasecase pb-6">&copy; BuiltBySisi</div>
             </div>
         </footer>
 
-        <script>
-            function getCarouselData() {
-                return {
-                    currentIndex: 0,
-                    images: [
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-                        'https://source.unsplash.com/collection/1346951/800x800?sig=9',
-                    ],
-                    increment() {
-                        this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
-                    },
-                    decrement() {
-                        this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
-                    },
+                <script>
+            var cont=0;
+            function loopSlider(){
+            var xx= setInterval(function(){
+                switch(cont)
+                {
+                case 0:{
+                    $("#slider-1").fadeOut(400);
+                    $("#slider-2").delay(400).fadeIn(400);
+                    $("#sButton1").removeClass("bg-purple-800");
+                    $("#sButton2").addClass("bg-purple-800");
+                cont=1;
+                
+                break;
                 }
+                case 1:
+                {
+                
+                    $("#slider-2").fadeOut(400);
+                    $("#slider-1").delay(400).fadeIn(400);
+                    $("#sButton2").removeClass("bg-purple-800");
+                    $("#sButton1").addClass("bg-purple-800");
+                cont=0;
+                
+                break;
+                }
+                
+                
+                }},8000);
+
+        }
+
+        function reinitLoop(time){
+        clearInterval(xx);
+        setTimeout(loopSlider(),time);
+        }
+
+
+
+        function sliderButton1(){
+
+            $("#slider-2").fadeOut(400);
+            $("#slider-1").delay(400).fadeIn(400);
+            $("#sButton2").removeClass("bg-purple-800");
+            $("#sButton1").addClass("bg-purple-800");
+            reinitLoop(4000);
+            cont=0
+            
             }
+            
+            function sliderButton2(){
+            $("#slider-1").fadeOut(400);
+            $("#slider-2").delay(400).fadeIn(400);
+            $("#sButton1").removeClass("bg-purple-800");
+            $("#sButton2").addClass("bg-purple-800");
+            reinitLoop(4000);
+            cont=1
+            
+            }
+
+            $(window).ready(function(){
+                $("#slider-2").hide();
+                $("#sButton1").addClass("bg-purple-800");
+                
+
+                loopSlider();
+            });
+
         </script>
 
     </body>
