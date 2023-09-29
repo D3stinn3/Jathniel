@@ -1456,6 +1456,14 @@ select {
   background-position: top;
 }
 
+.bg-bottom {
+  background-position: bottom;
+}
+
+.bg-left {
+  background-position: left;
+}
+
 .fill-current {
   fill: currentColor;
 }

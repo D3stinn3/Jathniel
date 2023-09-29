@@ -24,3 +24,7 @@ def activitiesPage(request):
 def subscriptionPage(request):
     context = {}
     return render(request, 'temp/base6.html', context)
+
+def landingPage(request):
+    context = {}
+    return render(request, 'temp/base7.html', context)
