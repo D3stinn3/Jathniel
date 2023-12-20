@@ -1,1 +1,1 @@
-web: gunicorn ProjectJathniel.wsgi --log-file -
+web: python manage.py makemigrations && python manage.py migrate && gunicorn ProjectJathniel.wsgi --log-file -
