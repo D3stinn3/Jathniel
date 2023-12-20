@@ -35,7 +35,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
-    'https://jathniel-production.up.railway.app',
     'https://jathnielcentre.com',
 ]
 
@@ -168,11 +167,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Security
 CORS_ALLOWED_ORIGINS = [
-    'https://jathniel-production.up.railway.app',
     'https://jathnielcentre.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://jathniel-production.up.railway.app',
     'https://jathnielcentre.com',
 ]
