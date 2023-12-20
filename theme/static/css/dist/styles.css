@@ -1131,6 +1131,14 @@ select {
   height: 100vh;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -1224,6 +1232,14 @@ select {
   width: 100%;
 }
 
+.w-8 {
+  width: 2rem;
+}
+
+.w-\[230px\] {
+  width: 230px;
+}
+
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -1277,10 +1293,6 @@ select {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1321,10 +1333,6 @@ select {
   gap: 0.625rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .gap-\[31px\] {
   gap: 31px;
 }
@@ -1346,12 +1354,6 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(3rem * var(--tw-space-y-reverse));
-}
-
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .space-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -1412,6 +1414,10 @@ select {
   border-width: 1px;
 }
 
+.border-4 {
+  border-width: 4px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1454,6 +1460,10 @@ select {
 .border-neutral-100 {
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
+}
+
+.border-transparent {
+  border-color: transparent;
 }
 
 .bg-\[\#67636333\] {
@@ -1518,6 +1528,21 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-green-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-5 {
@@ -1586,6 +1611,10 @@ select {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-10 {
@@ -1696,6 +1725,16 @@ select {
 .py-\[5px\] {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .pb-12 {
@@ -1839,6 +1878,10 @@ select {
   font-weight: 600;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1951,6 +1994,11 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-orange-100 {
+  --tw-text-opacity: 1;
+  color: rgb(255 237 213 / var(--tw-text-opacity));
+}
+
 .no-underline {
   text-decoration-line: none;
 }
@@ -1986,6 +2034,10 @@ select {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.outline-8 {
+  outline-width: 8px;
 }
 
 .filter {
@@ -2107,6 +2159,14 @@ select {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:outline:hover {
+  outline-style: solid;
+}
+
+.hover\:duration-300:hover {
+  transition-duration: 300ms;
 }
 
 .focus-visible\:shadow-none:focus-visible {
