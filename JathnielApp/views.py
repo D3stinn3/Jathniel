@@ -53,7 +53,7 @@ def contactPage(request):
     else:
         form = CommentsForm()
 
-    comments = Comments.objects.all().values('email', 'message')
+    comments = Comments.objects.all()
         
 
     context = {'form': form, 'comments': comments}
