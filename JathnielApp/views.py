@@ -55,7 +55,7 @@ def contactPage(request):
 
     comments = Comments.objects.all().values('email', 'message')
     time.sleep(20)
-    send_whatsapp_message(comments)
+    send_whatsapp_message(comment=comments)
     time.sleep(60)
         
 
