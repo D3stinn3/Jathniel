@@ -13,13 +13,7 @@ auth_token = 'a55f7a98613ec3e5a9acbd93e0fd365b'
 
 client = Client(account_sid, auth_token)
 
-message = client.messages.create(
-    from_='whatsapp:+14155238886',
-    body='Your appointment is coming up on July 21 at 3PM',
-    to='whatsapp:+254708526536'
-)
 
-print(message.sid)
 
 def send_whatsapp_message(comment):
     # Replace these with your Twilio credentials
