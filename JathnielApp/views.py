@@ -56,14 +56,16 @@ def contactPage(request):
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
-            for _ in form:
-                send_whatsapp_message(comments=form)
             form.save()
             return redirect('success')  # You can define a success URL
     else:
         form = CommentsForm()
 
-    comments = Comments.objects.all()  # Retrieve all comments for display
+    comments = Comments.objects.all()
+    for _ in comments:
+        send_whatsapp_message(comments=form)# Retrieve all comments for display
+        
+
     context = {'form': form, 'comments': comments}
     return render(request, 'temp/base4.html', context)
 
