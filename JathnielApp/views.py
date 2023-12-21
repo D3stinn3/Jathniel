@@ -66,6 +66,8 @@ def contactPage(request):
     comments = Comments.objects.all().values('message')
     send_whatsapp_message(comment=comments)
     
+    comments = Comments.objects.all()
+    
         
 
     context = {'form': form, 'comments': comments}
