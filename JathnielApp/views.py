@@ -24,7 +24,7 @@ def send_whatsapp_message(comment):
 
     message = client.messages.create(
         from_=twilio_phone_number,
-        body=f"New Comment by: {comment.email} (Message: {comment.message})",
+        body=f"(Message: {comment})",
         to=recipient_phone_number
     )
 
