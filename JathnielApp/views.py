@@ -15,8 +15,8 @@ auth_token = 'a55f7a98613ec3e5a9acbd93e0fd365b'
 
 def send_whatsapp_message(comment):
     # Replace these with your Twilio credentials
-    account_sid = account_sid
-    auth_token = auth_token
+    account_sid = 'AC2e7334957c5e7973449d5af02311d3b0'
+    auth_token = 'a55f7a98613ec3e5a9acbd93e0fd365b'
     twilio_phone_number = 'whatsapp:+14155238886'
     recipient_phone_number = 'whatsapp:+254708526536'  # Replace with the recipient's number
 
