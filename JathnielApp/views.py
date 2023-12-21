@@ -49,14 +49,14 @@ def contactPage(request):
         form = CommentsForm(request.POST)
         if form.is_valid():
             form.save()
-            time.sleep(20)
-            send_whatsapp_message(form)
-            time.sleep(60)
             return redirect('success')  # You can define a success URL
     else:
         form = CommentsForm()
 
     comments = Comments.objects.all()
+    time.sleep(20)
+    send_whatsapp_message(comments)
+    time.sleep(60)
         
 
     context = {'form': form, 'comments': comments}
