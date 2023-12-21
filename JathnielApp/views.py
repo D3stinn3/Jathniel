@@ -53,7 +53,7 @@ def contactPage(request):
     else:
         form = CommentsForm()
 
-    comments = Comments.objects.all()
+    comments = Comments.objects.all().values('email', 'message')
     time.sleep(20)
     send_whatsapp_message(comments)
     time.sleep(60)
