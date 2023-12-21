@@ -11,8 +11,6 @@ from twilio.rest import Client
 account_sid = 'AC2e7334957c5e7973449d5af02311d3b0'
 auth_token = 'a55f7a98613ec3e5a9acbd93e0fd365b'
 
-client = Client(account_sid, auth_token)
-
 
 
 def send_whatsapp_message(comment):
@@ -50,14 +48,15 @@ def contactPage(request):
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
+            for _ in comments:
+                send_whatsapp_message(comments=form)
+                break # Retrieve all comments for display
             form.save()
             return redirect('success')  # You can define a success URL
     else:
         form = CommentsForm()
 
     comments = Comments.objects.all()
-    for _ in comments:
-        send_whatsapp_message(comments=form)# Retrieve all comments for display
         
 
     context = {'form': form, 'comments': comments}
