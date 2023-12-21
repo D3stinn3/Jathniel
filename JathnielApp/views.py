@@ -54,9 +54,7 @@ def contactPage(request):
         form = CommentsForm()
 
     comments = Comments.objects.all().values('email', 'message')
-    time.sleep(50)
     send_whatsapp_message(comment=comments)
-    time.sleep(60)
         
 
     context = {'form': form, 'comments': comments}
