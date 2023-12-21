@@ -3,7 +3,7 @@ from JathnielApp.models import Videos, Comments
 from JathnielApp.forms import CommentsForm
 from JathnielApp.models import Comments
 from twilio.rest import Client
-
+import time
 
 
 # Find your Account SID and Auth Token at twilio.com/console
@@ -49,7 +49,9 @@ def contactPage(request):
         form = CommentsForm(request.POST)
         if form.is_valid():
             form.save()
+            time.sleep(20)
             send_whatsapp_message(form)
+            time.sleep(60)
             return redirect('success')  # You can define a success URL
     else:
         form = CommentsForm()
