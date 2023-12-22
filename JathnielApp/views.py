@@ -63,13 +63,8 @@ def contactPage(request):
     else:
         form = CommentsForm()
 
-    comments = Comments.objects.all().values('message')
-    send_whatsapp_message(comment=comments)
-    
     comments = Comments.objects.all()
     
-        
-
     context = {'form': form, 'comments': comments}
     return render(request, 'temp/base4.html', context)
 
